@@ -1,42 +1,72 @@
 {
-  "name": "run-something",
-  "displayName": "run-something",
-  "description": "",
-  "version": "0.0.1",
-  "engines": {
-    "vscode": "^1.83.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [],
-  "main": "./out/extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "run-something.helloWorld",
-        "title": "Hello World"
-      }
-    ]
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
-  },
-  "devDependencies": {
-    "@types/vscode": "^1.83.0",
-    "@types/mocha": "^10.0.3",
-    "@types/node": "18.x",
-    "@typescript-eslint/eslint-plugin": "^6.9.0",
-    "@typescript-eslint/parser": "^6.9.0",
-    "eslint": "^8.52.0",
-    "glob": "^10.3.10",
-    "mocha": "^10.2.0",
-    "typescript": "^5.2.2",
-    "@vscode/test-electron": "^2.3.6"
-  }
+	"name": "run-something",
+	"displayName": "run-something",
+	"description": "run run run",
+	"version": "1.0.0",
+	"engines": {
+		"vscode": "^1.83.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [],
+	"main": "./out/extension.js",
+	"contributes": {
+		"configuration": [
+			{
+				"title": "Script",
+				"properties": {
+					"run-something.script": {
+						"type": "string",
+						"default": "echo 'Hello World'",
+						"description": "Command to run on current file"
+					}
+				}
+			}
+		],
+		"commands": [
+			{
+				"command": "run-something.runrun",
+				"title": "Run something for this"
+			},
+			{
+				"command": "run-something.runrunexplorer",
+				"title": "Run something for this"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"command": "run-something.runrun",
+					"group": "commands"
+				}
+			],
+			"explorer/context": [
+				{
+					"command": "run-something.runrunexplorer",
+					"group": "commands"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.83.0",
+		"@types/mocha": "^10.0.3",
+		"@types/node": "18.x",
+		"@typescript-eslint/eslint-plugin": "^6.9.0",
+		"@typescript-eslint/parser": "^6.9.0",
+		"eslint": "^8.52.0",
+		"glob": "^10.3.10",
+		"mocha": "^10.2.0",
+		"typescript": "^5.2.2",
+		"@vscode/test-electron": "^2.3.6"
+	}
 }
