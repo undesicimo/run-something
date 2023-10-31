@@ -1,7 +1,10 @@
 {
 	"name": "run-something",
 	"displayName": "run-something",
+	"repository": "https://github.com/undesicimo/run-something",
+	"author": "undesicimo",
 	"description": "run run run",
+	"license": "MIT",
 	"version": "1.0.0",
 	"engines": {
 		"vscode": "^1.83.0"
